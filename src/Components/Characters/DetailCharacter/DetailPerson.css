@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+body{
+    color: aliceblue;
+    font-family: 'Press Start 2P', cursive;
+    
+}
+
+.personDetail{
+    display: flex;
+    justify-content: center;
+    margin: 10%;
+}
+
+.personDetail__info{
+    margin: 5%;
+}
+
+.personDetail__image{
+    border-radius: 10%;
+}
+
+.Back{
+    color: yellow;
+    text-decoration: none;
+}

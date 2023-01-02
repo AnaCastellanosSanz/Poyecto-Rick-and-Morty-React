@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.class-header__nav{
+    padding: 20px;
+    background: rgba(255, 255, 255, 0);
+    z-index: 1;
+    display: flex;
+    justify-content:center;
+    font-family: 'Press Start 2P', cursive;
+    margin-top: 3%;
+}
+
+.class-header__link{
+    transition: 0.3s;
+    text-shadow: 10px 10px 10px rgb(0, 0, 0);
+    color: #ffffff;
+    font-size: 40px;
+    text-decoration: none;
+    border-top: 4px solid #6f777227;
+    border-bottom: 4px solid #464948;
+    padding: 20px;
+    background: transparent;
+    margin: 40px;
+    text-transform: uppercase;
+   
+         
+}
