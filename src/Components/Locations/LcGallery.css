@@ -5,7 +5,7 @@ a{
 }
 
 
-.cardImage {
+.cardImage-location {
     border-radius: 16px 16px 0px 0px;
     width: 100%;
     object-fit: cover;
@@ -13,17 +13,18 @@ a{
     aspect-ratio: 4/3;
   }
   
-  .card {
+  .card-location {
     background-color: rgb(236, 236, 236);
     border: 1px solid rgba(255, 255, 255, 0);
-    width: 80%;
+    width: 70%;
     border-radius: 10%;
+   
 
   }
 
-  .card-info-name {
+  .card-info-name-location {
     margin-top: 10px;
-    font-size: 15px;
+    font-size: 10px;
     text-align: center;
     color: black;
     text-transform: uppercase;
@@ -33,22 +34,14 @@ a{
     
   }
 
-  .card-wrapper {
-    place-content: center;
-    justify-items: center;
-    align-items: center;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
-    
-   
-    padding-left: 10%;
-    margin: 5%;
+  .card-wrapper-location {
+  
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        padding: 10px;
+        width: 80%;
+       margin-left: 10%;
+
     
   }
   
-
-  .card-info-gender{
-    color: black;
-  }

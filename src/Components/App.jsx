@@ -4,10 +4,11 @@ import api from '../services/api'; //Importo todo el documento api, no únicamen
 import ListPerson from "./Characters/ListPerson"; //Únicamente se importa ListPerson ya que Person va incluido en este 
 import { Route, Routes } from 'react-router-dom';
 import DetailPerson from "./Characters/DetailCharacter/DetailPerson.jsx";
-import FilterStatus from "./FilterStatus";
+import FilterStatus from "./Characters/FilterStatus.jsx";
 import Header from "./Header/Header";
 import HomePage from "./HomePage/HomePage";
 import Notfound from "./Notfound/Notfound";
+import LocationsPage from "./Locations/LocationsPage";
 
 
 
@@ -62,6 +63,7 @@ function App () {
         <ListPerson list={filteredData}  />
         </>}/>
         <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
+        <Route path="/locations" element={<LocationsPage />} />
         <Route path="*" element={ <Notfound />}/>
     </Routes>
     </>
