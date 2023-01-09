@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
-
 html, body {
   margin: 0;
   height: 100%;
@@ -73,7 +72,6 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
 }
 
 #menu-toggle {
@@ -84,6 +82,7 @@ a {
 .menu-button::before,
 .menu-button::after {
   display: block;
+  background-color: #a1a1a1;
   position: absolute;
   height: 4px;
   width: 30px;
@@ -160,4 +159,4 @@ a {
   .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;
   }
-}
+}/*# sourceMappingURL=Header.css.map */
