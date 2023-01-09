@@ -8,6 +8,8 @@
     justify-content:center;
     font-family: 'Press Start 2P', cursive;
     margin-top: 3%;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .class-header__link{

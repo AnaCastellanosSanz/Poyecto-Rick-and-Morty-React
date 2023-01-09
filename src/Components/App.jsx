@@ -8,6 +8,8 @@ import FilterStatus from "./FilterStatus";
 import Header from "./Header/Header";
 import HomePage from "./HomePage/HomePage";
 import Notfound from "./Notfound/Notfound";
+import Footer from "./Footer/Footer";
+import ContactForm from "./Form/ContactForm";
 
 
 
@@ -16,6 +18,14 @@ function App () {
     const [ listPerson, setListPerson] = useState([]) //Se le pasa un array ya que será un array de objetos.
 
     const [status, setStatus] = useState("");
+
+    //Se crea la variable de estado form que utilizaremos para almacenar los datos del formulario; es un objeto con cada una de las propiedades del formulario.
+    //La función setForm se va a encargar de actualizar la variable de estado y actualización del componente. LA utilizaremos en la función handleForm.
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        message: "",
+        });
 
     //Aqui es donde utilizaremos los datos obtenidos de "api"
     //UseEfect se encarga de controlar un bloque de código, si no ponemos el segundo parámetro se ejecuta cada vez que se renderiza.
@@ -43,6 +53,14 @@ function App () {
         }
     } );
 
+    //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
+    const handleForm = (event) => {
+        setForm({
+        ...form,
+        [event.target.name]: event.target.value,
+        });
+        };
+
     //Los parámetros que tiene Routes es el Path (la URL) y el componente que va a usar
     //En caso de que la ruta sea esta, muestrame este componente 
     //Pongo listPerson para mandarle las propiedas a DetailPerson mediante props
@@ -63,9 +81,11 @@ function App () {
         </>}/>
         <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
         <Route path="*" element={ <Notfound />}/>
+        <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm}/>}/>
     </Routes>
+    <Footer></Footer>
     </>
     );
 }
 
-export default App;
+export default App; 
