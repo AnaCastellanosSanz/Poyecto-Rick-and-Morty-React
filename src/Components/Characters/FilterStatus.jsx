@@ -5,7 +5,7 @@ import "./FilterStatus.css"
 //Paso por props tambien status (viene del filtro de app) le paso el valor al evento de tal forma que al hacer un filtro de los personajes y clicar sobre uno de ellos al volver a la parte de characters, se me siguen manteniniendo los personajes que estaban guardados en la variable de estado, no all por defecto.
 function FilterStatus ({ handleStatus, status }) {
     return <div className="filter">
-        <label htmlFor="status">Estado</label>
+        <label htmlFor="status"></label>
         <select name="" id="status" onChange={(ev) => handleStatus(ev.target.value)} value = {status}>
             <option value="All">Todos</option>
             <option value="Alive">Vivo</option>

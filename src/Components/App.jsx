@@ -4,12 +4,15 @@ import api from '../services/api'; //Importo todo el documento api, no únicamen
 import ListPerson from "./Characters/ListPerson"; //Únicamente se importa ListPerson ya que Person va incluido en este 
 import { Route, Routes } from 'react-router-dom';
 import DetailPerson from "./Characters/DetailCharacter/DetailPerson.jsx";
-import FilterStatus from "./FilterStatus";
+import FilterStatus from "./Characters/FilterStatus.jsx";
 import Header from "./Header/Header";
 import HomePage from "./HomePage/HomePage";
 import Notfound from "./Notfound/Notfound";
 import Footer from "./Footer/Footer";
 import ContactForm from "./Form/ContactForm";
+import LocationsPage from "./Locations/LocationsPage";
+
+ 
 
 
 
@@ -52,7 +55,7 @@ function App () {
            //En ternario sería --> return status === "All" ? true : element.status === status;
         }
     } );
-
+    
     //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
     const handleForm = (event) => {
         setForm({
@@ -60,6 +63,15 @@ function App () {
         [event.target.name]: event.target.value,
         });
         };
+    
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        localStorage.setItem('formData', JSON.stringify(form))
+        setForm({name:"", email:"", message:""})
+        alert ("Recibido!!")
+        };
+          
+    
 
     //Los parámetros que tiene Routes es el Path (la URL) y el componente que va a usar
     //En caso de que la ruta sea esta, muestrame este componente 
@@ -80,8 +92,9 @@ function App () {
         <ListPerson list={filteredData}  />
         </>}/>
         <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
+        <Route path="/locations" element={<LocationsPage />} />
         <Route path="*" element={ <Notfound />}/>
-        <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm}/>}/>
+        <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>}/>
     </Routes>
     <Footer></Footer>
     </>

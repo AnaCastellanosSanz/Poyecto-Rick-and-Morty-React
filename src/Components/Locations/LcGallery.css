@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+a{
+  text-decoration: none;
+  
+}
+
+
+.cardImage-location {
+    border-radius: 16px 16px 0px 0px;
+    width: 100%;
+    object-fit: cover;
+    max-height: max(10rem, 30vh);
+    aspect-ratio: 4/3;
+  }
+  
+  .card-location {
+    background-color: rgb(236, 236, 236);
+    border: 1px solid rgba(255, 255, 255, 0);
+    width: 70%;
+    border-radius: 10%;
+   
+
+  }
+
+  .card-info-name-location {
+    margin-top: 10px;
+    font-size: 10px;
+    text-align: center;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive;
+    padding: 15%;
+    
+  }
+
+  .card-wrapper-location {
+  
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+        padding: 10px;
+        width: 80%;
+        margin-left: 10%;
+        
+  }
+  
