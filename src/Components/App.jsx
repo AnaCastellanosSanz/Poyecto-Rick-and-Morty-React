@@ -62,23 +62,13 @@ function App () {
         });
         };
     
+     //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
     const handleSubmit = (event) => {
         event.preventDefault()
         localStorage.setItem('formData', JSON.stringify(form))
         setForm({name:"", email:"", message:""})
         alert ("Recibido!!")
         };
-          
-    
-
-    //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
-        const handleForm = (event) => {
-            setForm({
-            ...form,
-            [event.target.name]: event.target.value,
-            });
-            };
-
 
 
     //Los parámetros que tiene Routes es el Path (la URL) y el componente que va a usar
