@@ -1,13 +1,13 @@
 import React from "react";
-import "./Form.css";
-
+import "./Form.css"
+import Form from "./Form.png"
 
 //Recibe la variable de estado y la función.
-function ContactForm({form, handleForm, handleSubmit}) {
+function ContactForm({form, handleForm}) {
   return (
     <div className="div_Form">
-      <img src="https://assets.stickpng.com/thumbs/58f3773fa4fa116215a92413.png" alt="imagen"/>
-      <form className="form" onSubmit={handleSubmit}>
+      <img src={Form} alt="imagen"/>
+      <form className="form">
         <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" name="name" value={form.name} onChange={handleForm} required />
         <label htmlFor="email">Correo electrónico:</label>
@@ -21,4 +21,3 @@ function ContactForm({form, handleForm, handleSubmit}) {
 }
 
 export default ContactForm;
-

@@ -8,9 +8,9 @@ import FilterStatus from "./Characters/FilterStatus.jsx";
 import Header from "./Header/Header";
 import HomePage from "./HomePage/HomePage";
 import Notfound from "./Notfound/Notfound";
+import LocationsPage from "./Locations/LocationsPage";
 import Footer from "./Footer/Footer";
 import ContactForm from "./Form/ContactForm";
-import LocationsPage from "./Locations/LocationsPage";
 
 
 function App () {
@@ -53,23 +53,6 @@ function App () {
            //En ternario sería --> return status === "All" ? true : element.status === status;
         }
     } );
-    
-    //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
-    const handleForm = (event) => {
-        setForm({
-        ...form,
-        [event.target.name]: event.target.value,
-        });
-        };
-    
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        localStorage.setItem('formData', JSON.stringify(form))
-        setForm({name:"", email:"", message:""})
-        alert ("Recibido!!")
-        };
-          
-    
 
     //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
         const handleForm = (event) => {
@@ -102,13 +85,11 @@ function App () {
         <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="*" element={ <Notfound />}/>
-        <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>}/>
-       
-        
+        <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm}/>}/>
     </Routes>
     <Footer></Footer>
     </>
     );
 }
 
-export default App; 
+export default App;
