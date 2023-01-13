@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import LcGallery from "./LcGallery.jsx"
+import LcGallery from "../Components/Locations/LcGallery.jsx"
 
 function LocationsPage() {
 

@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 .App {
   text-align: center;
@@ -30,6 +30,15 @@
   color: #61dafb;
 }
 
+.usuario{
+  margin-top: 5%;
+  color: deeppink;
+  font-family: 'Press Start 2P', cursive;
+  justify-content: center;
+  text-align: center;
+  animation: colorr 20s linear infinite
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -37,4 +46,5 @@
   to {
     transform: rotate(360deg);
   }
+
 }

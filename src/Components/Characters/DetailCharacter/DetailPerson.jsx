@@ -5,8 +5,8 @@ import "./DetailPerson.css"
 
 // Esta parte es el detalle de cada uno de los personajes que aparecen al clicar 
 function DetailPerson( { listPerson } ) {
-    const params = useParams(); //Params devuelve el id del personaje
-    //OJO MIRAR BIEN EL TEMA DEL PARSEINT (MINUTO 14 SEGUNDA PARTE)
+    // Utiliza la función "useParams" de React Router para obtener el id del personaje actual de la URL.
+    const params = useParams(); 
     const foundPerson = listPerson.find((element) => element.id ===          
     parseInt(params.id)
     );

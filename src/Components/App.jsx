@@ -10,7 +10,10 @@ import HomePage from "./HomePage/HomePage";
 import Notfound from "./Notfound/Notfound";
 import Footer from "./Footer/Footer";
 import ContactForm from "./Form/ContactForm";
-import LocationsPage from "./Locations/LocationsPage";
+import LocationsPage from "../services/LocationsPage";
+import Login from './Authentication/Login.jsx';
+import RequiredAuth from './Authentication/RequiredAuth.jsx';
+import { login } from '../auth/auth.js'
 
 
 function App () {
@@ -18,6 +21,7 @@ function App () {
     const [ listPerson, setListPerson] = useState([]) //Se le pasa un array ya que será un array de objetos.
 
     const [status, setStatus] = useState("");
+
 
 
     //Se crea la variable de estado form que utilizaremos para almacenar los datos del formulario; es un objeto con cada una de las propiedades del formulario.
@@ -28,12 +32,17 @@ function App () {
         message: "",
         });
 
+
+
     //Aqui es donde utilizaremos los datos obtenidos de "api"
     //UseEfect se encarga de controlar un bloque de código, si no ponemos el segundo parámetro se ejecuta cada vez que se renderiza.
     useEffect(() => {
         api().then ((data) => setListPerson(data)); //Se le pasa setListPerson porque quiero modificar la variable de estado con los datos que me vienen de la API.
 
     },[]) //Este array vacío permite que solo se ejecute una vez, cuando se carga la página 
+
+
+
 
 
     //Creo la función manejadora del evento, que cambia a la variable de estado, recibe el value seleccionado (vivo, muerto o totos) y modifica a la variable de estado con ese value, lo suyo es que en el componente donde se encuentre la variable de estado, se encuentre también la función que modifique la variable.
@@ -71,6 +80,15 @@ function App () {
         };
 
 
+        const [user, setUser] = useState(null);
+        const authenticated = user != null;
+        const loginUser = ({email, password}) => 
+        setUser(login({ email, password }));
+        const logoutUser = () => setUser(null);
+
+
+
+
     //Los parámetros que tiene Routes es el Path (la URL) y el componente que va a usar
     //En caso de que la ruta sea esta, muestrame este componente 
     //Pongo listPerson para mandarle las propiedas a DetailPerson mediante props
@@ -79,7 +97,8 @@ function App () {
     //El path * permite que cualquier ruta que no esté definida aparezca el mensaje de error, lo suyo es crear un componente.
     return (
     <>
-    <Header></Header>
+    <Header authenticated={authenticated} logoutUser={logoutUser}></Header>
+    {authenticated ? <p className='usuario'>Bienvenid@: {user.username}</p> : <p className='usuario'>No User</p>}
     <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
@@ -90,11 +109,15 @@ function App () {
         <ListPerson list={filteredData}  />
         </>}/>
         <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
-        <Route path="/locations" element={<LocationsPage />} />
+        <Route path="/locations" 
+        element={
+        <>
+        <RequiredAuth authenticated={authenticated} />
+        <LocationsPage /> 
+        </>} />
         <Route path="*" element={ <Notfound />}/>
         <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>}/>
-       
-        
+        <Route path='/login' element={<Login loginUser={loginUser}></Login>}></Route>
     </Routes>
     <Footer></Footer>
     </>
