@@ -10,15 +10,17 @@ function LocationsPage() {
 
     const getLocations = async () => {
         const res = await axios(Url);
-        setLocations(res.data.results);
+        setLocations(res.data.results); // Es .results porque los datos se encuentran dentro de results
     }
 
     useEffect(() => {
         getLocations();
     }, [])
 
+
+    //Paso por props lcGallery
     return <div>
-        <LcGallery list={locations}/>
+        <LcGallery listLocation={locations}/> 
     </div>
 }
 

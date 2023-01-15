@@ -1,5 +1,7 @@
 .div_Form{
   display: flex;
+  width: 70%;
+  margin-left: 10%;
 }
 .form {
     display: flex;
@@ -42,3 +44,19 @@
   .form button:hover {
     background-color: #45a049;
   }
+
+  .img{
+    width: 40%;
+    height: 40%;
+    margin-top: 2%;
+  }
+
+  
+@media (max-width: 700px) {
+  .div_Form{
+    justify-content: center;
+  }
+  .img{
+    display: none;
+  }
+}

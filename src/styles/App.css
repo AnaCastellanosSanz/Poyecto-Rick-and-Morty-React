@@ -32,7 +32,7 @@
 
 .usuario{
   margin-top: 5%;
-  color: deeppink;
+  color: greenyellow;
   font-family: 'Press Start 2P', cursive;
   justify-content: center;
   text-align: center;
@@ -47,4 +47,10 @@
     transform: rotate(360deg);
   }
 
+}
+
+@media (max-width: 700px) {
+  .usuario{
+    margin-top: 15%;
+  }
 }

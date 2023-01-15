@@ -3,10 +3,8 @@ import "./Header.scss";
 
 
 function Header({ authenticated, logoutUser}){
-    //Link SIEMPRE va con seguido de to que indica las diferentes rutas que en este caso tendrá el header
-    /*<Link to="/" className="class-header__link">Home</Link>
-    <Link to="/characters" className="class-header__link">Characters</Link>
-    <Link to="/locations" className="class-header__link">Locations</Link>*/
+    //Link SIEMPRE va con seguido de to que indica las diferentes rutas que en este caso tendrá el header.
+    // El .click se utiliza para que se desplique el menu en la versión móvil.
     return  (
     
         <section class="top-nav">
