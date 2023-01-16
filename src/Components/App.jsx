@@ -10,10 +10,12 @@ import HomePage from "./HomePage/HomePage";
 import Notfound from "./Notfound/Notfound";
 import Footer from "./Footer/Footer";
 import ContactForm from "./Form/ContactForm";
+import Received from "./Received/Received";
 import LocationsPage from "../services/LocationsPage";
 import Login from './Authentication/Login.jsx';
 import RequiredAuth from './Authentication/RequiredAuth.jsx';
 import { login } from '../auth/auth.js'
+
 
 
 function App () {
@@ -37,7 +39,7 @@ function App () {
         });
 
 
-
+    const [submit, setSubmit] = useState(false)
 
 
      //DATOS DE LA API 
@@ -48,9 +50,6 @@ function App () {
         api().then ((data) => setListPerson(data)); //Se le pasa setListPerson porque quiero modificar la variable de estado con los datos que me vienen de la API.
 
     },[]) //Este array vacío permite que solo se ejecute una vez, cuando se carga la página 
-
-
-
 
 
 
@@ -77,10 +76,6 @@ function App () {
     
 
 
-
-    
-
-
     //FORM
 
     //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
@@ -91,14 +86,23 @@ function App () {
         });
         };
     
+
      //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
     const handleSubmit = (event) => {
         event.preventDefault()
         localStorage.setItem('formData', JSON.stringify(form))
         setForm({name:"", email:"", message:""})
-        alert ("Recibido!!")
+    //alert ("Recibido!!")
+        setSubmit(true)
         };
-
+    useEffect(() => {
+            if (submit) {
+              setTimeout(() => {
+                setSubmit(false);
+              }, 3000);
+            }
+          }, [submit]);
+        
 
 
 
@@ -109,11 +113,6 @@ function App () {
         const loginUser = ({email, password}) => 
         setUser(login({ email, password }));
         const logoutUser = () => setUser(null);
-
-
-
-
-
 
 
 
@@ -144,7 +143,7 @@ function App () {
         <LocationsPage /> 
         </>} />
         <Route path="*" element={ <Notfound />}/>
-        <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>}/>
+        <Route path="/contact" element={!submit ? (<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>) : ( <Received /> )}/>
         <Route path='/login' element={<Login loginUser={loginUser}></Login>}></Route>
     </Routes>
     <Footer></Footer>

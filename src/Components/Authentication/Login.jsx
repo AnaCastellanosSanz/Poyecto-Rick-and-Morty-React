@@ -10,7 +10,7 @@ const Login = ({loginUser}) => {
         email:"",
         password:""
     };
-    const [formUser, setFormUser] = useState(INITIAL_STATE);
+    const [formUser, setFormUser] = useState({INITIAL_STATE});
 
     //La función "handleInput" se utiliza para actualizar el estado del componente cada vez que el usuario ingresa o modifica algún valor en los campos del formulario.
     const handleInput = (ev) => {

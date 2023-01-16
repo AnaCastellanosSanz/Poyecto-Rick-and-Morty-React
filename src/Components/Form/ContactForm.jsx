@@ -1,10 +1,13 @@
 import React from "react";
 import "./Form.css";
-import photo from "./Form.png"
+import photo from "../../images/photo.png"
+
 
 
 //Recibe la variable de estado y la función.
 function ContactForm({form, handleForm, handleSubmit}) {
+  
+
   return (
     <div className="div_Form">
       <img src={photo} alt="imagen" className="img"/>
@@ -22,4 +25,3 @@ function ContactForm({form, handleForm, handleSubmit}) {
 }
 
 export default ContactForm;
-
