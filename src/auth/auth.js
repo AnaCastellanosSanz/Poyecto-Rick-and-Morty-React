@@ -24,7 +24,7 @@ export const login = ({email, password}) => {
         (user) => user.email === email && user.password === password
     );
     if (user === undefined){
-        alert("Email o contraseña erróneos")
+        alert("Email o contraseña incorrectos.")
     };
     return user;
 };
