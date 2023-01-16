@@ -79,6 +79,10 @@ a {
   display: none;
 }
 
+.logIn{
+  margin-top: 20%;
+}
+
 .menu-button,
 .menu-button::before,
 .menu-button::after {
@@ -136,9 +140,7 @@ a {
     padding: 20px;
     background: transparent;
     margin: 40px;
-    text-transform: uppercase;
-   
-         
+    text-transform: uppercase;      
 }
   }
   a {
@@ -182,5 +184,4 @@ a {
   .menu > li:not(:last-child) {
     border-bottom: 1px solid #444;
   }
-
 

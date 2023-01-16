@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.css';
 import App from './Components/App';
-//Primeramente hay que instalar npm install react-router-dom para poder trabajar con rutas, despues se importa y después la parte de abajo.
+//Primeramente hay que instalar npm install react-router-dom para poder trabajar con rutas, después se importa y después la parte de abajo.
 import { BrowserRouter } from "react-router-dom"
 
 //ReactDOM pinta en el HTML todos los elementos

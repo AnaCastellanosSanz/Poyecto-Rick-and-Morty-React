@@ -22,12 +22,30 @@ body{
 }
 
 .Back{
-    color: yellow;
+    color: greenyellow;
     text-decoration: none;
+    font-size: 15px;
 }
 
 @media (max-width: 700px) {
+
     .personDetail{
        display: block;
       
-    } }
+    } 
+    .personDetail__name{
+        font-size: 15px;
+    }
+
+    .personDetail__status{
+        font-size: 15px;
+    }
+
+    .personDetail__location{
+        font-size: 15px;
+    }
+
+    .personDetail__gender{
+        font-size: 15px;
+    }
+}

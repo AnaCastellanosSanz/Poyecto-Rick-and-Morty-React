@@ -27,6 +27,12 @@ html, body {
     padding: 1em;
   
   }
+  .logout{
+    color: deeppink;
+  }
+  .login{
+    color: deeppink;
+  }
   
   .menu {
     display: flex;
@@ -166,4 +172,6 @@ html, body {
     .menu > li:not(:last-child) {
       border-bottom: 1px solid #444;
     }
+
+
   }
