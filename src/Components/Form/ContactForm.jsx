@@ -1,6 +1,6 @@
 import React from "react";
 import "./Form.css";
-import photo from "./Form.png"
+import photo from "../../images/photo.png"
 
 
 
