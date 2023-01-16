@@ -11,6 +11,7 @@ import Notfound from "./Notfound/Notfound";
 import Footer from "./Footer/Footer";
 import ContactForm from "./Form/ContactForm";
 import LocationsPage from "./Locations/LocationsPage";
+import Received from "./Received/Received";
 
 
 function App () {
@@ -27,6 +28,10 @@ function App () {
         email: "",
         message: "",
         });
+
+
+    const [submit, setSubmit] = useState(false)
+
 
     //Aqui es donde utilizaremos los datos obtenidos de "api"
     //UseEfect se encarga de controlar un bloque de código, si no ponemos el segundo parámetro se ejecuta cada vez que se renderiza.
@@ -62,14 +67,23 @@ function App () {
         });
         };
     
+
      //Función que se ejecuta cada vez que el usuario modifica el contenido de un campo del formulario. Actualiza la variable de estado para reflejar los cambios realizados por el usuario.
     const handleSubmit = (event) => {
         event.preventDefault()
         localStorage.setItem('formData', JSON.stringify(form))
         setForm({name:"", email:"", message:""})
-        alert ("Recibido!!")
+    //alert ("Recibido!!")
+        setSubmit(true)
         };
-
+    useEffect(() => {
+            if (submit) {
+              setTimeout(() => {
+                setSubmit(false);
+              }, 3000);
+            }
+          }, [submit]);
+        
 
     //Los parámetros que tiene Routes es el Path (la URL) y el componente que va a usar
     //En caso de que la ruta sea esta, muestrame este componente 
@@ -92,9 +106,8 @@ function App () {
         <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
         <Route path="/locations" element={<LocationsPage />} />
         <Route path="*" element={ <Notfound />}/>
-        <Route path='/contact' element={<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>}/>
-       
-        
+        <Route path="/contact" element={!submit ? (<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>) : ( <Received /> )}/>
+
     </Routes>
     <Footer></Footer>
     </>
