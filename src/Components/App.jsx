@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../styles/App.css'
 import api from '../services/api'; //Importo todo el documento api, no únicamente la funcón de getDataApi
-import ListPerson from "./Characters/ListPerson"; //Únicamente se importa ListPerson ya que Person va incluido en este 
+import ListPerson from "../view/ListPerson.jsx"; //Únicamente se importa ListPerson ya que Person va incluido en este 
 import { Route, Routes } from 'react-router-dom';
 import DetailPerson from "./Characters/DetailCharacter/DetailPerson.jsx";
 import FilterStatus from "./Characters/FilterStatus.jsx";
@@ -13,7 +13,7 @@ import ContactForm from "./Form/ContactForm";
 import Received from "./Received/Received";
 import LocationsPage from "../services/LocationsPage";
 import Login from './Authentication/Login.jsx';
-import RequiredAuth from './Authentication/RequiredAuth.jsx';
+import RequiredAuth from '../auth/RequiredAuth.js';
 import { login } from '../auth/auth.js'
 
 

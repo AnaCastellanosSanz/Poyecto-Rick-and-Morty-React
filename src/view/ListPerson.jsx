@@ -1,6 +1,6 @@
-import Person from "./Person";
+import Person from "../Components/Characters/Person";
 import React from "react";
-import "./ListPerson.css";
+import "../Components/Characters/ListPerson.css";
 
 //El listado está en app para enviar datos de un componente a otro utilizamos props.
 function ListPerson ({ list }) {
