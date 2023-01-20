@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./Header.scss";
+import "../../styles/Header.scss";
 
 
 function Header({ authenticated, logoutUser}){

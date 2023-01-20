@@ -1,6 +1,10 @@
 import axios from "axios"
-import { useEffect, useState } from "react"
-import LcGallery from "../Components/Locations/LcGallery.jsx"
+import { useEffect, useState, createContext } from "react"
+import LcGallery from "../view/Locations/LcGallery.jsx"
+
+
+export const RMContext = createContext();
+
 
 function LocationsPage() {
 

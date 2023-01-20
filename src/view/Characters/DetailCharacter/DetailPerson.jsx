@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import "./DetailPerson.css"
+import "../../../styles/DetailPerson.css"
 
 
 // Esta parte es el detalle de cada uno de los personajes que aparecen al clicar 

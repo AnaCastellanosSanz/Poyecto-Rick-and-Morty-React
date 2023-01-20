@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import './Login.scss'
+import "../../styles/Login.scss"
 
 
 //El componente "Login" recibe una propiedad llamada "loginUser" que se utiliza para iniciar sesión con los datos del usuario. El componente mantiene el estado de un formulario de inicio de sesión con dos campos: "email" y "password", utilizando el hook "useState".

@@ -1,4 +1,4 @@
-import "./FilterStatus.css"
+import "../../styles/FilterStatus.css"
 
 //FilterStatus recibe por props a handleStatus, que se encuentra en App
 //En cuanto al onChange recibe una call back que se llevará a cabo cuando reciba el cambio, cuando ocurra el evento se va a ejecutar handleStatus el cual recibe el valor seleccionado.

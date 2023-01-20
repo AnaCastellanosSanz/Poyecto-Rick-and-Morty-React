@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './person.css'
+import '../../styles/person.css'
 
 
 //Person va a ser cada uno de los li 

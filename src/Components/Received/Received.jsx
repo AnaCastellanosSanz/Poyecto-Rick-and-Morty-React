@@ -1,6 +1,6 @@
 import React from "react";
 import submit from "../../images/submit.png"
-import "./Received.css";
+import "../../styles/Received.css";
 
 function Received (){
     return(

@@ -1,0 +1,52 @@
+.c-pagination{
+
+    text-align: center;
+    margin: 15px;
+
+    &__button{
+        border:none;
+        height: 45px;
+        width: 45px;
+        line-height: 3px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 1px;
+        
+        z-index: 1;
+        margin: 0 8px 0 0;
+        transition: all 0.4s ease 0s;
+    
+        &:hover{
+            
+            border-bottom: 4px solid #ffffff;
+            padding: 6px 0; 
+            color: rgb(16, 59, 29);
+            cursor: pointer;
+        }
+
+     
+    }
+
+    &__number{
+        border:none;
+        height: 45px;
+        width: 45px;
+        line-height: 35px;
+        border-radius:10%;
+       
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        position: relative;
+        overflow: hidden;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-right: 10px;
+
+    }  
+   
+} 

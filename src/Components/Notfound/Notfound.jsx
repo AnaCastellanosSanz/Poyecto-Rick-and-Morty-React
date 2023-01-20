@@ -1,12 +1,13 @@
-import "./Notfound.css"
+import "../../styles/Notfound.css"
 import React from "react"
+import notfound from "../../images/error404.png"
 
 
 function Notfound () {
     return (
         <div>
             <p className="notFound-text"> Página no encontrada error 404 </p>
-            <img  src="https://www.pngmart.com/files/22/Rick-and-Monty-PNG-Pic.png" className="notFound-img" alt="NotFound"></img>
+            <img  src={notfound}className="notFound-img" alt="NotFound"></img>
         </div>
     )
 

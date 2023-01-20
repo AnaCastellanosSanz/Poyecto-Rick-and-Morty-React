@@ -1,5 +1,5 @@
 import React from 'react';
-import "./LcGallery.css"
+import "../../styles/LcGallery.css"
 
 export default function LcGallery({ listLocation }) {
     return (
