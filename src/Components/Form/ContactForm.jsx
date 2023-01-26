@@ -1,16 +1,14 @@
-import React from "react";
+import { themeContext } from "../App";
+import { useContext } from "react";
 import "./Form.css";
 import photo from "../../images/photo.png"
 
-
-
-//Recibe la variable de estado y la función.
 function ContactForm({form, handleForm, handleSubmit}) {
+  const theme = useContext(themeContext);
   
-
   return (
     <div className="div_Form">
-      <img src={photo} alt="imagen" className="img"/>
+      {theme === "light" ? null : <img src={photo} alt="imagen" className="img"/>}
       <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" name="name" value={form.name} onChange={handleForm} required />
@@ -25,4 +23,5 @@ function ContactForm({form, handleForm, handleSubmit}) {
 }
 
 export default ContactForm;
+
 
