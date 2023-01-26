@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, createContext } from "react";
 import '../styles/App.css'
 import api from '../services/api'; //Importo todo el documento api, no únicamente la funcón de getDataApi
 import ListPerson from "../view/Characters/ListPerson.jsx"; //Únicamente se importa ListPerson ya que Person va incluido en este 
@@ -15,8 +15,13 @@ import LocationsPage from "../services/LocationsPage";
 import Login from './Authentication/Login.jsx';
 import RequiredAuth from '../auth/RequiredAuth.js';
 import { login } from '../auth/auth.js'
+import ReactSwitch from "react-switch";
 
 
+
+
+//Creamos un contexto para que pueda ser utilizado por  los demás componentes sin necesidad de props y establecemos el valor inicial en dark. 
+export const themeContext = createContext('dark')
 
 
 function App () {
@@ -93,7 +98,6 @@ function App () {
         event.preventDefault()
         localStorage.setItem('formData', JSON.stringify(form))
         setForm({name:"", email:"", message:""})
-    //alert ("Recibido!!")
         setSubmit(true)
         };
     useEffect(() => {
@@ -114,6 +118,15 @@ function App () {
         const loginUser = ({email, password}) => 
         setUser(login({ email, password }));
         const logoutUser = () => setUser(null);
+        
+        
+        //Creamos un estado en el componente actual que se llama "theme" y establecemos su valor inicial en "dark". El hook "useState" devuelve un par de valores, el primero es el estado actual y el segundo es una función para actualizar el estado.
+        //La función toggleTheme usa la función "setTheme" que recibió de useState para cambiar el tema actual, si el tema actual es "dark" se pone "light" y viceversa.
+        const [theme, setTheme] = useState("dark");
+        const toggleTheme = ()=>{
+            setTheme(theme=>(theme==="dark"?"light":"dark"));
+        }
+
 
 
 
@@ -124,31 +137,47 @@ function App () {
     //Para que el filtro aparezca únicamente en la ruta del Home, tengo que crear un div y meter alli los diferentes elemntos, solo debe tener constancia de que hay un solo hijo.
     //El path * permite que cualquier ruta que no esté definida aparezca el mensaje de error, lo suyo es crear un componente.
     return (
-    <>
-    <Header authenticated={authenticated} logoutUser={logoutUser}></Header>
-    {authenticated ? <p className='usuario'>Bienvenidx: {user.username}</p> : <p className='usuario'>No User</p>}
-    <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route
-         path='/characters' 
-         element={
-        <>
-        <FilterStatus handleStatus={handleStatus} status={status}/>
-        <ListPerson list={filteredData}  />
-        </>}/>
-        <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
-        <Route path="/locations" 
-        element={
-        <>
-        <RequiredAuth authenticated={authenticated} />
-        <LocationsPage /> 
-        </>} />
-        <Route path="*" element={ <Notfound />}/>
-        <Route path="/contact" element={!submit ? (<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>) : ( <Received /> )}/>
-        <Route path='/login' element={<Login loginUser={loginUser}></Login>}></Route>
-    </Routes>
-    <Footer></Footer>
-    </>
+    
+    <themeContext.Provider value={theme}>
+    <div className="mainDiv" id={theme}>
+        {theme === "light" ? (
+            <p>{theme} mode</p>
+            ) : (
+                <p>{theme} mode</p>
+            )}
+        <ReactSwitch 
+            onChange={toggleTheme} 
+            checked={theme==="light"}
+            checkedIcon={false}
+            uncheckedIcon={false}
+            />
+
+        <Header authenticated={authenticated} logoutUser={logoutUser}></Header>
+        {authenticated ? <p className='usuario'>Bienvenidx: {user.username}</p> : <p className='usuario'>No User</p>}
+         
+        <Routes>
+             <Route path="/" element={<HomePage />} />
+             <Route
+                 path='/characters' 
+                 element={
+                <>
+                <FilterStatus handleStatus={handleStatus} status={status}/>
+                <ListPerson list={filteredData}  />
+                </>}/>
+            <Route  path='/character/detail/:id' element={<DetailPerson listPerson={listPerson} /> }/>
+            <Route path="/locations" 
+            element={
+                <>
+                <RequiredAuth authenticated={authenticated} />
+                <LocationsPage /> 
+                </>} />
+            <Route path="*" element={ <Notfound />}/>
+            <Route path="/contact" element={!submit ? (<ContactForm form={form} handleForm={handleForm} handleSubmit={handleSubmit}/>) : ( <Received /> )}/>
+            <Route path='/login' element={<Login loginUser={loginUser}></Login>}></Route>
+        </Routes>
+        <Footer></Footer>
+    </div>
+    </themeContext.Provider>
     );
 }
 

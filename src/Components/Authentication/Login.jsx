@@ -36,7 +36,7 @@ const Login = ({loginUser}) => {
       <input type="text" id='email' value={formUser.email} onChange={handleInput}></input>
       <label htmlFor='password'>Password</label>
       <input type='text' id='password' value={formUser.password} onChange={handleInput}></input>
-      <button type='submit'>Login</button>
+      <button type='submit' className='buttonLogin'>Login</button>
     </form>
 
     </div>

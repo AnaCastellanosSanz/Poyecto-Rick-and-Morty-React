@@ -54,3 +54,17 @@
     margin-top: 15%;
   }
 }
+
+
+#light {
+  background-image: url('../images/rick-and-morty-en-3d_3840x2160_xtrafondos.com.jpg');
+  background-size: cover;
+  background-position: center;
+  
+}
+  
+
+
+#dark{
+  background-color: rgb(34, 34, 34);
+}

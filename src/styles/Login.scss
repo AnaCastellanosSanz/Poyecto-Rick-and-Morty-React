@@ -32,20 +32,22 @@ input{
     
 }
 
-button{
+.buttonLogin{
     font-family: 'Press Start 2P', cursive;
     background-color: black;
     cursor: pointer;
-    border: none;
     padding: 16px 32px;
     color: white;
     font-size: 15px;
     font-weight: bold;
     position: relative;
-    border-radius: 12px;  
+    border-radius: 12px; 
+    border-color: deeppink; 
 }
 
-button::before{
+
+//Ha dejado de funcionar el diseño del botón
+/*.buttonLogin::before{
     content: "";
     position: absolute;
     top: 0;
@@ -72,11 +74,11 @@ button::before{
     }
 }
 
-}
+}*/
 
 
 @media (max-width: 700px) {
     .formLogin{
         margin-top: 20%;
     }
-}
+}}
